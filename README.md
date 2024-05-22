@@ -1,5 +1,5 @@
 # template-ts
-Template typescript project
+Template typescript project (Souheib)
 
 ```javascript
 npm install
