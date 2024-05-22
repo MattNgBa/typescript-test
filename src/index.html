@@ -9,13 +9,21 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <h1>Digital watch</h1>
-    <div id="watch">
-        <div id="time">00:00</div>
-        <div id="mode">Mode</div>
-        <div id="increase">Increase</div>
-        <div id="light">Light</div>
+    <div class="container">
+        <h1>Digital watch</h1>
+        <div class="watch">
+            <div class="time">
+                <div><span id="hours" >00</span>:<span id="minutes">00</span></div>
+            </div>
+
+            <div class="buttons" >
+                <button id="mode">Mode</button>
+                <button id="increase">Increase</button>
+                <button id="light">Light</button>
+            </div>
+
+        </div>
+
     </div>
-    <script src="dist/index.js" ></script>
 </body>
 </html>

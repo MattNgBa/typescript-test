@@ -17,7 +17,7 @@ export class MyClass {
     return { hours: this.hours, minutes: this.minutes };
   };
 
-  public increment = (): void => {
+  public increment(): void {
     switch (this.editMode) {
       case 1:
         this.hours = (this.hours + 1) % 24;
@@ -28,14 +28,36 @@ export class MyClass {
       case 0:
         break;
     }
-  };
+    this.updateDisplay();
+  }
 
-  public toggleEditMode = (): void => {
+  public toggleEditMode(): void {
     this.editMode = (this.editMode + 1) % 3;
+    const hours = document.getElementById("hours")!;
+    const minutes = document.getElementById("minutes")!;
+    switch (this.editMode) {
+      case 1:
+        hours.classList.add("underline");
+        minutes.classList.remove("underline");
+        break;
+      case 2:
+        minutes.classList.add("underline");
+        hours.classList.remove("underline");
+        break;
+      case 0:
+        hours.classList.remove("underline");
+        minutes.classList.remove("underline");
+        break;
+    }
+  }
+
+  public toggleLight = (): void => {
+    this.light = !this.light;
   };
 
-  public updateDisplay = (): void => {
-    const timeElement = document.getElementById("time")!;
+  public updateDisplay(): void {
+    const hoursElement: HTMLElement = document.getElementById("hours")!;
+    const minutesElement: HTMLElement = document.getElementById("minutes")!;
     const hours =
       this.hours >= 10 ? this.hours.toString() : "0" + this.hours.toString();
     const minutes =
@@ -43,6 +65,7 @@ export class MyClass {
         ? this.minutes.toString()
         : "0" + this.minutes.toString();
 
-    timeElement.textContent = `${hours}:${minutes}`;
-  };
+    hoursElement.textContent = hours;
+    minutesElement.textContent = minutes;
+  }
 }
