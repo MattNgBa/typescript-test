@@ -51,9 +51,12 @@ export class MyClass {
     }
   }
 
-  public toggleLight = (): void => {
+  public toggleLight(): void {
     this.light = !this.light;
-  };
+    const watchElement: HTMLElement = document.querySelector(".time")!;
+    watchElement.style.backgroundColor = this.light ? "#fff" : "#003285";
+    watchElement.style.color = this.light ? "#003285" : "#fff";
+  }
 
   public updateDisplay(): void {
     const hoursElement: HTMLElement = document.getElementById("hours")!;
